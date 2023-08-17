@@ -1,16 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-guestbook
+  name: userapp
   namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: helm-guestbook
-    server: {{ .Values.spec.destination.server }}
-  project: my-project
+    namespace: userapp
+    server: https://kubernetes.default.svc
   source:
-    path: helm-guestbook
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
+    path: userapp
+    repoURL: https://github.com/CodyKurtz/argocd_demo.git
+    targetRevision: HEAD
