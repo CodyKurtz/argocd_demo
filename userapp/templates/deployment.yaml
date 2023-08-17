@@ -49,7 +49,7 @@ spec:
               secretKeyRef:
                 key:  mysql_service_host
                 name: app-auth
-           - name: "MYSQL_SERVICE_PORT"
+          - name: "MYSQL_SERVICE_PORT"
             valueFrom:
               secretKeyRef:
                 key:  mysql_service_port
